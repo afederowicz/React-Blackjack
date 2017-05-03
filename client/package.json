@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A React.js blackjack card game",
   "main": "index.js",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "webpack": "node_modules/.bin/webpack",
     "webpack:watch": "npm run webpack -- --watch",
