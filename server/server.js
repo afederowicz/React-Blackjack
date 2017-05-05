@@ -79,7 +79,7 @@ db.once("open", function() {
   //   res.sendFile(path.join(__dirname + "/../public/index.html"));
   // });
 
-app.post("/submit", function(req, res) {
+app.post("/signup", function(req, res) {
   var newUser = new Game(req.body);
 
   newUser.save(function(error, doc) {
@@ -92,6 +92,30 @@ app.post("/submit", function(req, res) {
   });
 });
 
+app.post("/signin", function(req, res, err) {
+  /*
+	find a user with a username of req.body.username and req.body.password
+	check if true, if true then set session, redirect to game
+	if false, err
+  */
+
+  Game.findOne({ username: req.body.username, password: req.body.password },function(err, resDoc){
+ //  	console.log("this hit");
+ //  	console.log(req);
+	// console.log(res);
+  	if (resDoc.username == "") {
+
+  		res.send("Your information is incorrect.")
+      
+    }
+    else {
+    	// res.redirect("/game");
+    	console.log(resDoc.username)
+    	console.log(resDoc)
+    	res.redirect("/game");
+    }
+  });
+});
 
 // app.get("/game", function(req, res) {
 //   // Find all users in the user collection with our User model
@@ -108,7 +132,7 @@ app.post("/submit", function(req, res) {
 // });
 
 
-// for create react app, thsi works to route from login to game
+// for create react app, thsi works to route from login to Game
 // app.get('*', function(req, res) {
 //     res.sendFile(path.join(__dirname, './../client/build/index.html'));
 // });

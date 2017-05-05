@@ -18,20 +18,20 @@ passport.use(new LocalStrategy(
   
   /* User will use his/her email as username */
   { 
-    usernameField: "email"
+    usernameField: "username"
   },
 
-  function(email, password, done) {
+  function(username, password, done) {
       /* When user signs in */
-      db.User.findOne({
+      db.Game.findOne({
           where: {
-            email: email
+            username: username
           }
       }).then(function(dbUser) {
-            /* If there is no user with the email provided */
+            /* If there is no user with the username provided */
             if(!dbUser) {
                 return done(null, false, {
-                    message: "Incorrect email!"
+                    message: "Incorrect username!"
                 });
 
             /* If the user types in the wrong password, but email provided is valid */
