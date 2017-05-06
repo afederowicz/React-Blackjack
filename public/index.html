@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> BlackJack </title>
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div class="overlay"> </div>
+	<!-- Sidebar Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+		<ul class="nav sidebar-nav">
+			<li class="sidebar-brand">
+				<a href="#">
+					BlackJack
+				</a>
+			</li>
+			<li>
+				<a href="#"> Home </a>
+			</li>
+			<li>
+				<a data-toggle="modal" data-target="#loginModal"> Play </a>
+			</li>
+			<li>
+				<a href="#rules"> Rules </a>
+			</li>
+			<li>
+				<a href="#"> Contributors </a>
+			</li>
+		</ul>
+	</nav>
+	<!-- End Sidebar Nav -->
+
+	<!-- Page Content -->
+	<div id="page-content-wrapper">
+		<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+			<span class="hamb-top"> </span>
+			<span class="hamb-middle"> </span>
+			<span class="hamb-bottom"> </span>
+		</button>
+
+		<div class="container">
+
+			<!-- Title -->
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<ul>
+						<li> <img src="./assets/img/024-spades.png" class="img-responsive"> </li>
+						<li> <h1> BlackJack </h1> </li>
+						<li> <img src="./assets/img/024-spades.png" class="img-responsive"> </li>
+					</ul>
+					<h3> The Most Authentic, Easy, and Exhilarating Casino Game </h3>
+				</div>
+			</div>
+			<!-- End of Title -->
+
+			<!-- Play Button & Modal -->
+			<div class="row">
+				<button type="button" class="btn btn-launch" data-toggle="modal" data-target="#loginModal"> 
+						Play Now
+      			</button>	
+			</div>
+
+			<!-- -Login Modal -->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+    			<div class="modal-content login-modal">
+      				<div class="modal-header login-modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<ul class="modal-ul">
+        					<li> <img src="./assets/img/024-spades.png" class="img-responsive"> </li>
+        					<li> <h1 class="modal-title text-center" id="loginModalLabel"> BlackJack </h1> </li>
+        					<li> <img src="./assets/img/024-spades.png" class="img-responsive"> </li>
+        				</ul>
+      				</div>
+
+      				<!-- Modal Body -->
+      				<div class="modal-body">
+      					<div class="text-center">
+	      					<div role="tabpanel" class="login-tab">
+
+					  	<!-- Sign In & Sign Up Tabs -->
+					  	<ul class="nav nav-tabs" role="tablist">
+					    	<li role="presentation" class="active"><a id="signin-taba" href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In</a></li>
+					    	<li role="presentation"><a id="signup-taba" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up</a></li>
+					    	<li role="presentation"><a id="forgetpass-taba" href="#forget_password" aria-controls="forget_password" role="tab" data-toggle="tab">Password</a></li>
+					  	</ul>
+					
+					  	<!-- Tab panes -->
+					 	<div class="tab-content">
+					    	<div role="tabpanel" class="tab-pane active text-center" id="home">
+					    		&nbsp;&nbsp;
+					    		<span id="login_fail" class="response_error" style="display: none;">Loggin failed, please try again.</span>
+					    		<div class="clearfix"></div>
+					    		<form action="/signin" method="post">
+									<div class="form-group">
+								    	<div class="input-group">
+								      		<div class="input-group-addon"><i class="fa fa-user"></i></div>
+								      		<input type="text" name="username" class="form-control" id="login_username" placeholder="Username">
+								    	</div>
+								    	<span class="help-block has-error" id="email-error"></span>
+								  	</div>
+								  	<div class="form-group">
+								    	<div class="input-group">
+								      		<div class="input-group-addon"><i class="fa fa-lock"></i></div>
+								      		<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+								    	</div>
+								    	<span class="help-block has-error" id="password-error"></span>
+								  	</div>
+						  			<button type="submit" id="login_btn" class="btn btn-block bt-login">Login</button>
+						  			<div class="clearfix"></div>
+						  			<div class="login-modal-footer">
+						  				<div class="row">
+											<div class="col-xs-8 col-sm-8 col-md-8">
+												<i class="fa fa-lock"></i>
+												<a href="javascript:;" class="forgetpass-tab"> Forgot password? </a>
+											
+											</div>
+											
+											<div class="col-xs-4 col-sm-4 col-md-4">
+												<i class="fa fa-check"></i>
+												<a href="javascript:;" class="signup-tab"> Sign Up </a>
+											</div>
+										</div>
+						  			</div>
+								</form>
+					    	</div>
+
+					    	<div role="tabpanel" class="tab-pane" id="profile">
+					    	    &nbsp;&nbsp;
+					    	    <span id="registration_fail" class="response_error" style="display: none;">Registration failed, please try again.</span>
+					    		<div class="clearfix"></div>
+					    		<form action="/signup" method="post">
+									<div class="form-group">
+								    	<div class="input-group">
+								      		<div class="input-group-addon"><i class="fa fa-user"></i></div>
+								      		<input type="text" name="username" class="form-control" id="username" placeholder="Username">
+								    	</div>
+								    	<span class="help-block has-error" data-error='0' id="username-error"></span>
+								  	</div>
+								  	<div class="form-group">
+								    	<div class="input-group">
+								      		<div class="input-group-addon"><i class="fa fa-at"></i></div>
+								      		<input type="text" name="password" class="form-control" id="remail" placeholder="Password">
+								    	</div>
+								    	<span class="help-block has-error" data-error='0' id="remail-error"></span>
+								  	</div>
+						  			<button type="submit" id="register_btn" class="btn btn-block bt-login">Register</button>
+									<div class="clearfix"></div>
+									<div class="login-modal-footer">
+						  				<div class="row">
+											<div class="col-xs-8 col-sm-8 col-md-8">
+												<i class="fa fa-lock"></i>
+												<a href="javascript:;" class="forgetpass-tab"> Forgot password? </a>
+											
+											</div>
+											
+											<div class="col-xs-4 col-sm-4 col-md-4">
+												<i class="fa fa-check"></i>
+												<a href="javascript:;" class="signin-tab"> Sign In </a>
+											</div>
+										</div>
+						  			</div>
+								</form>
+					    	</div>
+					    	<div role="tabpanel" class="tab-pane text-center" id="forget_password">
+					    		&nbsp;&nbsp;
+					    	    <span id="reset_fail" class="response_error" style="display: none;"></span>
+						    		<div class="clearfix"></div>
+						    		<form>
+										<div class="form-group">
+									    	<div class="input-group">
+									      		<div class="input-group-addon"><i class="fa fa-user"></i></div>
+									      		<input type="text" class="form-control" id="femail" placeholder="Email">
+									    	</div>
+									    	<span class="help-block has-error" data-error='0' id="femail-error"></span>
+									  	</div>
+									  	
+							  			<button type="button" id="reset_btn" class="btn btn-block bt-login" data-loading-text="Please wait....">Forget Password</button>
+										<div class="clearfix"></div>
+										<div class="login-modal-footer">
+							  				<div class="row">
+												<div class="col-xs-6 col-sm-6 col-md-6">
+													<i class="fa fa-lock"></i>
+													<a href="javascript:;" class="signin-tab"> Sign In </a>
+												
+												</div>
+												
+												<div class="col-xs-6 col-sm-6 col-md-6">
+													<i class="fa fa-check"></i>
+													<a href="javascript:;" class="signup-tab"> Sign Up </a>
+												</div>
+											</div>
+							  			</div>
+									</form>
+						    	</div>
+						  	</div>
+						</div>
+	      				
+	      			</div>
+	      		</div>
+	      		
+	    	</div>
+	   </div>
+ 	</div>
+ 	<!-- - Login Model Ends Here -->
+
+		</div> <!-- End of Container -->
+
+	</div>  <!-- End of Page Content -->
+
+</div> <!-- End of Wrapper -->
+
+	<!-- Rules Jumbotron -->
+<section id="rules">
+	<div class="jumbotron">
+		<div class="container">
+			<h1 id="rules"> Rules </h1>
+			<div class="row">
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<img src="./assets/img/024-spades.png" class="img-responsive" id="rules-img"> 
+						<h3 class="summary"> Strategy </h3>
+						<p> Winning tactics in Blackjack require that the player play each hand in the optimum way, and such strategy always takes into account what the dealer's upcard is. When the dealer's upcard is a good one, a 7, 8, 9, 10-card, or ace for example, the player should not stop drawing until a total of 17 or more is reached. When the dealer's upcard is a poor one, 4, 5, or 6, the player should stop drawing as soon as he gets a total of 12 or higher. The strategy here is never to take a card if there is any chance of going bust. The desire with this poor holding is to let the dealer hit and hopefully go over 21. Finally, when the dealer's up card is a fair one, 2 or 3, the player should stop with a total of 13 or higher.</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<img src="./assets/img/024-spades.png" class="img-responsive" id="rules-img"> 
+						<h3 class="summary"> Game Summary </h3>
+						<p> When all the players have placed their bets, the dealer gives two cards to each player in a clockwise rotation. After the initial deal, each player is asked by the dealer to "Hit" or "Stand". If you "Hit", the dealer deals another card to you, if a player chooses to "Stay", you keep your two cards without adding another. When each player eventually choose to "Stay", the dealer draws a card for himself. If the dealer's card total is still under 16, the dealer is obligated to "Hit" until he is over 16 and under 21 or he busts, meaning his card total is over 21. The results of the hand is "Win", "Lose", or "Tie". You Win if your card total is closer to 21 than the dealer's. You lose if the opposite is true. And you Tie if you have the same card total that the dealer has. </p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<img src="./assets/img/024-spades.png" class="img-responsive" id="rules-img"> 
+						<h3 class="summary"> Buying Chips </h3>
+						<p> Before sitting at the blackjack table, each player must buy chips. A player must buy enough chips to, at the very least, be able to cover the minimum buy-in for one hand. There are multiple minimum tables, ranging from $15 to $100 buy-in. Once you have the minimum amount of chips, you can sit at any blackjack table available. Before each deal begins, each player places a bet, ranging from the minimum buy-in to the maximum limit. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 	<!-- End of Jumbotron -->
+</section>
+
+<div id="footer">
+	<div class="container">
+	<h5> &copy <a href="https://github.com/patrickloughrey"> Patrick Loughrey, </a> <a href="https://github.com/afederowicz"> Andrew Federowicz, </a> <a href="https://github.com/ajcarnese"> Tony Carnese </a> 
+	</h5>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+ crossorigin="anonymous"> </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="./assets/js/main.js"> </script>
+</body>
+
+</html>
